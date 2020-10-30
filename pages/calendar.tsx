@@ -2,13 +2,19 @@ import Head from "next/head";
 import Calendar from "../components/Calendar";
 import Theme from "../components/Theme";
 import { darkGrey } from "../constants";
-import { yearsAndWeeksSinceDate } from "../utils/years";
+import { validateAge, yearsAndWeeksSinceDate } from "../utils/years";
+import { NextPageContext } from "next";
+import isValid from "date-fns/isValid";
+import parseISO from "date-fns/parseISO";
 
-const yearsToLive = 80;
-const enteredBirthDate = new Date(1992, 7, 25);
-const yearsAndWeeksSinceBirth = yearsAndWeeksSinceDate(enteredBirthDate);
+type CalendarPageProps = {
+  age: number;
+  dob: string;
+};
 
-export default function CalendarPage() {
+export default function CalendarPage({ age, dob }: CalendarPageProps) {
+  const yearsAndWeeksSinceBirth = yearsAndWeeksSinceDate(new Date(dob));
+
   return (
     <Theme>
       <Head>
@@ -21,14 +27,14 @@ export default function CalendarPage() {
           crossOrigin="anonymous"
         />
       </Head>
-      <h1>MEMENTO MORI</h1>
+      <h2>MEMENTO MORI</h2>
       <Calendar
-        yearsToLive={yearsToLive}
+        yearsToLive={age}
         yearsAndWeeksSinceBirth={yearsAndWeeksSinceBirth}
       />
       <style jsx>
         {`
-          h1 {
+          h2 {
             letter-spacing: 0.4em;
             color: ${darkGrey};
           }
@@ -37,3 +43,13 @@ export default function CalendarPage() {
     </Theme>
   );
 }
+
+CalendarPage.getInitialProps = async (ctx: NextPageContext) => {
+  const age = validateAge(Number(ctx.query.age), 1, 125);
+  const dob = parseISO(ctx.query.dob?.toString());
+
+  return {
+    dob: isValid(dob) ? dob : parseISO("1994-01-01"),
+    age,
+  };
+};
