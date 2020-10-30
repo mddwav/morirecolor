@@ -17,16 +17,6 @@ export default function CalendarPage({ age, dob }: CalendarPageProps) {
 
   return (
     <Theme>
-      <Head>
-        <title>Memento Mori Calendar</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-          integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-          crossOrigin="anonymous"
-        />
-      </Head>
       <h2>MEMENTO MORI</h2>
       <Calendar
         yearsToLive={age}
