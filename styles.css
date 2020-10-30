@@ -4,4 +4,6 @@ html {
 
 body {
   font-family: "Times New Roman", Times, serif;
+  padding-left: 8px;
+  padding-right: 8px;
 }
