@@ -1,19 +1,9 @@
-import * as d3 from "d3";
+import Theme from "../components/Theme";
 
-const IndexPage = () => {
-  console.log(d3);
+export default function IndexPage() {
   return (
-    <div>
-      <p>MEMEMNTO MORI</p>
-      <style jsx>
-        {`
-          p {
-            color: red;
-          }
-        `}
-      </style>
-    </div>
+    <Theme>
+      <p>hello world</p>
+    </Theme>
   );
-};
-
-export default IndexPage;
+}
