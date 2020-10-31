@@ -1,4 +1,4 @@
-import { cellSize, cellSpacing } from "../constants";
+import { cellSpacing } from "../constants";
 import WeekRow from "./WeekRow";
 
 type CalendarProps = {
