@@ -1,4 +1,4 @@
-import { cellSize } from "../constants";
+import { cellSize, cellSpacing } from "../constants";
 import WeekRow from "./WeekRow";
 
 type CalendarProps = {
@@ -33,7 +33,7 @@ export default function Calendar({
       })}
       <style jsx>{`
         .week-row:nth-child(10n) {
-          margin-bottom: ${cellSize * 2}px;
+          margin-bottom: ${cellSpacing};
         }
 
         .calendar {

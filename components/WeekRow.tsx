@@ -1,4 +1,4 @@
-import { weeksInYear, cellSize, darkGrey } from "../constants";
+import { weeksInYear, cellSize, darkGrey, cellSpacing } from "../constants";
 
 type WeekRowProps = {
   label?: number;
@@ -22,8 +22,8 @@ export default function WeekRow({ label, fillIndex }: WeekRowProps) {
       <style jsx>{`
         .week {
           margin: 1px;
-          height: ${cellSize}px;
-          width: ${cellSize}px;
+          height: ${cellSize};
+          width: ${cellSize};
           border: 1px solid ${darkGrey};
         }
 
@@ -38,7 +38,7 @@ export default function WeekRow({ label, fillIndex }: WeekRowProps) {
         }
 
         .week:nth-child(26) {
-          margin-right: ${cellSize * 2}px;
+          margin-right: ${cellSpacing};
         }
 
         .label {

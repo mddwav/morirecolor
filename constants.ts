@@ -1,4 +1,5 @@
-export const cellSize = 6;
+export const cellSize = "1vh";
+export const cellSpacing = "1.5vh";
 export const darkGrey = "#2a2a2a";
 
 export const weeksInYear = [

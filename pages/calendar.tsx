@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Calendar from "../components/Calendar";
 import Theme from "../components/Theme";
 import { darkGrey } from "../constants";
@@ -17,16 +16,18 @@ export default function CalendarPage({ age, dob }: CalendarPageProps) {
 
   return (
     <Theme>
-      <h2>MEMENTO MORI</h2>
+      <h1>MEMENTO MORI</h1>
       <Calendar
         yearsToLive={age}
         yearsAndWeeksSinceBirth={yearsAndWeeksSinceBirth}
       />
       <style jsx>
         {`
-          h2 {
+          h1 {
             letter-spacing: 0.4em;
             color: ${darkGrey};
+            text-align: center;
+            font-weight: normal;
           }
         `}
       </style>
