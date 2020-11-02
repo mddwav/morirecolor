@@ -1,5 +1,3 @@
-export const cellSize = "1vh";
-export const cellSpacing = "1.5vh";
 export const darkGrey = "#2a2a2a";
 
 export const weeksInYear = [
@@ -56,3 +54,7 @@ export const weeksInYear = [
   {},
   {},
 ];
+
+export const mobileScreenWidth = "425px";
+
+export const laptopScreenWidth = "1024px";

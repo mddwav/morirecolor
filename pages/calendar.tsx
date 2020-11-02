@@ -1,6 +1,6 @@
 import Calendar from "../components/Calendar";
 import Theme from "../components/Theme";
-import { darkGrey } from "../constants";
+import { darkGrey, mobileScreenWidth } from "../constants";
 import { validateAge, yearsAndWeeksSinceDate } from "../utils/years";
 import { NextPageContext } from "next";
 import isValid from "date-fns/isValid";
@@ -28,6 +28,12 @@ export default function CalendarPage({ age, dob }: CalendarPageProps) {
             color: ${darkGrey};
             text-align: center;
             font-weight: normal;
+          }
+
+          @media screen and (max-width: ${mobileScreenWidth}) {
+            h1 {
+              font-size: 16px;
+            }
           }
         `}
       </style>

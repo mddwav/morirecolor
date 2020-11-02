@@ -1,4 +1,4 @@
-import { weeksInYear, cellSize, darkGrey, cellSpacing } from "../constants";
+import { weeksInYear, darkGrey, mobileScreenWidth } from "../constants";
 
 type WeekRowProps = {
   label?: number;
@@ -22,8 +22,8 @@ export default function WeekRow({ label, fillIndex }: WeekRowProps) {
       <style jsx>{`
         .week {
           margin: 1px;
-          height: ${cellSize};
-          width: ${cellSize};
+          height: 2px;
+          width: 2px;
           border: 1px solid ${darkGrey};
         }
 
@@ -37,17 +37,24 @@ export default function WeekRow({ label, fillIndex }: WeekRowProps) {
           position: relative;
         }
 
-        .week:nth-child(26) {
-          margin-right: ${cellSpacing};
+         {
+          /* .week:nth-child(26) {
+          margin-right: 6px;
+        } */
         }
 
         .label {
           position: absolute;
-          right: -32px;
+          right: -8px;
+          width: 1px;
           text-align: left;
-          width: 24px;
-          font-size: 0.6em;
           color: ${darkGrey};
+        }
+
+        @media screen and (max-width: ${mobileScreenWidth}) {
+          .label {
+            font-size: 8px;
+          }
         }
       `}</style>
     </div>
