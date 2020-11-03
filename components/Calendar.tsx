@@ -1,4 +1,3 @@
-import { laptopScreenWidth, mobileScreenWidth } from "../constants";
 import WeekRow from "./WeekRow";
 
 type CalendarProps = {
