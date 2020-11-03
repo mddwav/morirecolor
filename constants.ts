@@ -55,6 +55,6 @@ export const weeksInYear = [
   {},
 ];
 
-export const mobileScreenWidth = "425px";
+export const mobileScreenWidth = "426px";
 
-export const laptopScreenWidth = "1024px";
+export const laptopScreenWidth = "1290px";

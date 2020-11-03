@@ -1,3 +1,4 @@
+import { laptopScreenWidth, mobileScreenWidth } from "../constants";
 import WeekRow from "./WeekRow";
 
 type CalendarProps = {
@@ -23,20 +24,20 @@ export default function Calendar({
         const year = index + 1;
         const label = year % 5 === 0 ? year : undefined;
         const fillIndex = getFillIndex(yearIndex, weekIndex, index);
+        const hasGap = year % 10 === 0;
 
         return (
           <div className="week-row" key={index}>
-            <WeekRow label={label} fillIndex={fillIndex} />
+            <WeekRow label={label} fillIndex={fillIndex} hasGap={hasGap} />
           </div>
         );
       })}
       <style jsx>{`
-        .week-row:nth-child(10n) {
-          margin-bottom: 6px;
-        }
-
         .calendar {
           padding-bottom: 16px;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
         }
       `}</style>
     </div>

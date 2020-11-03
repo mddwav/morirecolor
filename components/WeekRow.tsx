@@ -1,13 +1,20 @@
-import { weeksInYear, darkGrey, mobileScreenWidth } from "../constants";
+import {
+  weeksInYear,
+  darkGrey,
+  laptopScreenWidth,
+  mobileScreenWidth,
+} from "../constants";
+import cn from "classnames";
 
 type WeekRowProps = {
   label?: number;
   fillIndex: number;
+  hasGap?: boolean;
 };
 
-export default function WeekRow({ label, fillIndex }: WeekRowProps) {
+export default function WeekRow({ label, fillIndex, hasGap }: WeekRowProps) {
   return (
-    <div className="row">
+    <div className={cn("row", { "has-gap": hasGap })}>
       {weeksInYear.map((_, index) => {
         let classes = "week";
 
@@ -20,6 +27,10 @@ export default function WeekRow({ label, fillIndex }: WeekRowProps) {
       <label className="label">{label}</label>
 
       <style jsx>{`
+        .has-gap {
+          margin-bottom: 4px;
+        }
+
         .week {
           margin: 1px;
           height: 2px;
@@ -37,23 +48,42 @@ export default function WeekRow({ label, fillIndex }: WeekRowProps) {
           position: relative;
         }
 
-         {
-          /* .week:nth-child(26) {
-          margin-right: 6px;
-        } */
-        }
-
         .label {
           position: absolute;
           right: -8px;
           width: 1px;
           text-align: left;
           color: ${darkGrey};
+          font-size: 8px;
         }
 
-        @media screen and (max-width: ${mobileScreenWidth}) {
+        @media screen and (min-width: ${mobileScreenWidth}) {
+          .has-gap {
+            margin-bottom: 6px;
+          }
+
           .label {
-            font-size: 8px;
+            font-size: 10px;
+          }
+
+          .week {
+            height: 3px;
+            width: 3px;
+          }
+        }
+
+        @media screen and (min-width: ${laptopScreenWidth}) {
+          .has-gap {
+            margin-bottom: 12px;
+          }
+
+          .label {
+            font-size: 12px;
+          }
+
+          .week {
+            height: 6px;
+            width: 6px;
           }
         }
       `}</style>
